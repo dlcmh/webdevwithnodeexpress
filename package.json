@@ -1,12 +1,12 @@
 {
-  "name": "site",
+  "name": "Meadowlark Travel",
   "version": "1.0.0",
   "description": "",
   "main": "meadowlark.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "David Chin",
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.1",
