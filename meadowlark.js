@@ -13,6 +13,12 @@ app.set('port', process.env.PORT || 27887)
 // set up static middleware before declaring any routes
 app.use(express.static(__dirname + '/public'))
 
+// set up middleware to detect test=1 in the querystring
+app.use(function(req, res, next) {
+  res.locals.showTests = app.get('env') !== 'production' && req.query.test === '1'
+  next()
+})
+
 // GET Routes
 app.get('/', function(req, res) {
   res.render('home')
@@ -20,7 +26,7 @@ app.get('/', function(req, res) {
 
 
 app.get('/about', function(req, res) {
-  res.render('about', {fortune: fortune.getFortune()})
+  res.render('about', {fortune: fortune.getFortune(), pageTestScript: '/qa/tests-about.js'})
 })
 
 
